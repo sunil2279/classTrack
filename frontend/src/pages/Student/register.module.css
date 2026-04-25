@@ -1,0 +1,88 @@
+.container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background: #121529;
+}
+
+.cardContainer{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80vw;
+    background: #28294d;
+    box-shadow: 10px 10px 15px rgb(30 35 57);
+    
+}
+
+.cardContainer_left{
+    flex: 0.6;
+    padding: 2rem;
+    text-align: center;
+    
+}
+.cardleft_heading{
+    font-weight: bold;
+    font-size: 1.9rem;
+}
+.inputField{
+    padding-inline: 1.3rem;
+    padding-block: 0.8rem;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid #bbbbbb;
+    width: 90%;
+    box-shadow: 5px 5px 15px #121529;
+}
+.inputField:focus{
+    background-color: #d1d0d0;
+    border: 2px solid rgb(8, 8, 8);
+}
+.inputContainers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1.3rem;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 1.5rem;
+}
+.buttonWithOutline{
+    background: #57519d;
+    width: 66%;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow:15px 15px 18px #121529;
+    
+}
+.buttonWithOutline:hover{
+    background-color: #464180;   
+}
+.buttonWithOutline:active{
+   transform: scale(0.95);
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.inputRow{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+}
+.cardContainer_right{
+    display: flex;
+    flex: 0.4;
+    background-color: #12162f;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-inline: 1.2rem;
+}

@@ -1,0 +1,71 @@
+
+.contianer{
+    display: flex;
+    margin: 1.3rem;
+}
+.leftContianer{
+    flex: 0.25;
+}
+.rightContianer{
+    border: 1px solid red;
+    flex: 0.75;
+    width: 100%;
+    background: linear-gradient(45deg ,#070a29,#181c50);
+}
+.topContent{
+    height: 8vh;
+    width: 100%;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.midContent{
+    border: 1px solid green;
+    height: 30vh;
+    width: 100%;
+    display: flex;
+}
+.studentData{
+    display: flex;
+    justify-content: space-around;
+    margin: 2.5rem;
+    height: 164px;
+    width: 95%;
+}
+.card{
+    height: 164px;
+    width: 21%;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+.bottomContent{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+.image{
+    display: flex;
+    justify-content: space-between;
+}
+img{
+    width: 40%;
+    min-width: 250px;
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+ id = 69de7700244484258c53cb61;
+ course id = 69d9de9066a104fcf1875da3
+ course id second = 69d9deff66a104fcf1875da4
+*/

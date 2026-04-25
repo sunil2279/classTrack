@@ -1,0 +1,12 @@
+.homeContianer{
+    display: flex;
+}
+.leftContainer{
+    flex: 0.2;
+}
+.rightContainer{
+    flex: 0.8;
+    background-color:#fefefe;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

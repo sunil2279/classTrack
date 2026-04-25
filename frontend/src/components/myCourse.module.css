@@ -1,0 +1,18 @@
+.mycourses{
+    background-image: url("https://tse3.mm.bing.net/th/id/OIP.fm3dC5WspRX-jdRlawwODAHaLG?rs=1&pid=ImgDetMain&o=7&rm=3https://www.bing.com/images/search?view=detailV2&ccid=vg5Vv2pP&id=04F5028678808DA94FC74F948A2E085C9D0596AE&thid=OIP.vg5Vv2pPbuseWZ-0FYorrwHaEJ&mediaurl=https%3a%2f%2fimg.freepik.com%2fpremium-photo%2finformation-processing-abstract-computer-code-background_887552-27908.jpg%3fw%3d2000&exph=1121&expw=2000&q=Computer+Code+Background&FORM=IRPRST&ck=527B134F335A599D2467143138DD6D79&selectedIndex=13&itb=0");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 160px;
+    width: 95%;
+    filter: blur(0.5px);
+    border-radius: 10px;
+    margin: 1.2rem;
+}
+.text{
+    color: white;
+    font-weight: bold;
+}
+.coursedetails{
+    padding-left: 18px;
+}
