@@ -1,6 +1,6 @@
 import React from 'react'
-import MainLayout from '../layout/mainlayout'
-import Navbar from './Navbar.jsx'
+import MainLayout from '../../layout/mainlayout.jsx'
+import Navbar from '../../components/Navbar.jsx'
 import styles from './fees.module.css';
 
 export default function FeesStatus() {

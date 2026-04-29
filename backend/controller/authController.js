@@ -84,7 +84,7 @@ export const getAllStudents = async (req, res) => {
 export const getStudentById = async (req, res) => {
   const { id } = req.params;
   try {
-    const student = await Student.findById(id);
+    const student = await Student.findById(id).select("-password").populate("course");
     if (!student) {
       return res.status(404).json({ message: "Student not found!" });
     }

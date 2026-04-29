@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Sidebar from "./Sidebar.jsx";
+import Sidebar from "../../components/Sidebar.jsx";
 import { useNavigate } from "react-router-dom";
-import { clientServer } from "../services/api.js";
-import MyCourses from "./mycourses.jsx";
-import MainLayout from "../layout/mainlayout.jsx";
+import { clientServer } from "../../services/api.js";
+import MyCourses from "../../components/mycourses.jsx";
+import MainLayout from "../../layout/mainlayout.jsx";
 import styles from "./myCourses.module.css";
-import Navbar from "./Navbar.jsx";
+import Navbar from "../../components/Navbar.jsx";
 
 
 export default function MyCoursePage() {

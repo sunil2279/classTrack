@@ -8,9 +8,14 @@ export default function Register() {
 
   useEffect(() => {
     let token = localStorage.getItem("token");
-    if(token){
+    let role = localStorage.getItem("role");
+    if(token && role == "studnet"){
       navigate('/dashboard');
     }
+    if(token && role == "admin"){
+      navigate("/admin-dashboard")
+    }
+
   },[]);
 
   const[userLoginMethod,setUserLoginMethod] = useState(false);
