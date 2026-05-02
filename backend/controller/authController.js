@@ -106,6 +106,18 @@ export const deleteStudent = async (req, res) => {
   }
 };
 
+export const deleteCourse = async (req, res) => {
+  try {
+    const {id} = req.params;
+
+    await Course.findByIdAndDelete(id);
+
+    return res.json({message:"Course deleted!"})
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
 export const assignCourse = async (req, res) => {
   try {
     const { studentId, courseId } = req.body;
@@ -140,6 +152,13 @@ export const addCourse = async (req, res) => {
 
     if (!name || !fees || !duration || !description) {
       return res.status(400).json({ message: "All fields are required" });
+    }
+
+
+     const existingCourse = await Course.findOne({ name });
+
+    if (existingCourse) {
+      return res.status(400).json({ message: "Course already exists" });
     }
 
     const course = new Course({
@@ -209,16 +228,58 @@ export const dashboardStats = async (req, res) => {
     const students = await Student.find();
 
     let totalEarnings = 0;
-
+    let totalFeesAmount = 0;
+    let paidAmount = 0;
     students.forEach((s) => {
       totalEarnings += s.fees.paidAmount;
+      totalFeesAmount += s.fees.totalAmount;
+      paidAmount += s.fees.paidAmount;
     });
+    
+    let pendingAmount = totalFeesAmount - totalEarnings;
 
     return res.json({
       TotalCourse,
       TotalStudent,
       totalEarnings,
+      pendingAmount,
+      paidAmount
     });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const courseWiseStudents = async (req, res) => {
+  try {
+    const data = await Student.aggregate([
+      { $unwind: "$course" },
+      {
+        $group: {
+          _id: "$course", 
+          count: { $sum: 1 }
+        }
+      },
+      {
+        $lookup: {
+          from: "courses",
+          localField: "_id",
+          foreignField: "_id",
+          as: "courseDetails"
+        }
+      },
+      { $unwind: "$courseDetails" },
+      {
+        $project: {
+          _id: 0,
+          courseName: "$courseDetails.name",
+          count: 1
+        }
+      }
+    ]);
+
+    res.json(data);
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

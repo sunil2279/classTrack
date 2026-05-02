@@ -15,6 +15,7 @@ import StudentComponent from "./pages/Admin/StudentComponent.jsx";
 import CoursesComponent from "./pages/Admin/coursesComponent.jsx";
 import FeesComponent from "./pages/Admin/FeesComopnent.jsx";
 import StudentProfile from "./pages/Admin/StudentProfile.jsx";
+import CreateNewCourse from "./pages/Admin/CreateNewCourse.jsx";
 
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
       <Route path="/admin-Fees" element={<FeesComponent/>}></Route>
 
       <Route path="/admin-student/:id" element={<StudentProfile/>}></Route>
+
+      <Route path="/admin-addnewcourse" element={<CreateNewCourse/>}></Route>
       
       <Route path="*" element={<h1>404 - Page Not Found</h1>}/>
     </Routes>
