@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { clientServer } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import styles from "./adminLogin.module.css";
-
+import {jwtDecode} from "jwt-decode";
 
 export default function TeacherLogin() {
   const navigate = useNavigate();
@@ -12,6 +12,25 @@ export default function TeacherLogin() {
     password: "",
   });
 
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if(token){
+      try {
+        const decode = jwtDecode(token);
+
+        if(decode.role === "admin"){
+          navigate("/admin-dashboard");
+        }else if(decode.role === "student"){
+          navigate("/dashboard");
+        }
+      } catch (error) {
+        console.log(error);
+        localStorage.clear();
+      }
+    }
+  },[]);
+
+  
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -23,7 +42,6 @@ export default function TeacherLogin() {
     try {
       const res = await clientServer.post("/admin/login", form);
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("role", "admin");
       navigate("/admin-dashboard");
     } catch (error) {
       alert(error.response?.data?.message || "Error");

@@ -38,7 +38,6 @@ export default function CoursesComponent() {
   };
 
   let handlecourseDelete = async (id) => {
-    // console.log(id);
     try {
       let token = localStorage.getItem("token");
       let coursesResponse = await clientServer.delete(

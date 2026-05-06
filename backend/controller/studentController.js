@@ -26,7 +26,7 @@ export const registerForStudent = async(req,res) => {
             phone
         });
         const token = jwt.sign(
-        { id: newStudent._id },
+        { id: newStudent._id ,  role: "student"},
         process.env.SECRET_KEY,
         { expiresIn: "7d" }
         );
@@ -67,7 +67,7 @@ export const loginStudent = async(req,res) => {
         }
 
         const token = jwt.sign(
-            {id:student._id},
+            {id:student._id , role: "student"},
             process.env.SECRET_KEY,
             {expiresIn:"1d"}
         )

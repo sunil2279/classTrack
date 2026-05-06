@@ -53,11 +53,12 @@ export const adminLogin = async (req, res) => {
       return res.status(400).json({ message: "Invalid Credentials" });
     }
 
-    const token = jwt.sign({ id: admin._id }, process.env.SECRET_KEY, { expiresIn: "7d" });
+    const token = jwt.sign({ id: admin._id,role: "admin", }, process.env.SECRET_KEY, { expiresIn: "7d" });
 
     return res.status(200).json({
       message: "Admin Login successful!",
       token,
+      role: "admin",
       admin: {
         _id: admin._id,
         name: admin.name,
@@ -93,6 +94,21 @@ export const getStudentById = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const getAdminDetail = async(req,res) => {
+  try {
+    const user = await User.findOne(req.admin);
+
+    if(!user){
+      return res.status(404).json({message:"user not found"});
+    }
+
+    return res.json(user);
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
 
 export const deleteStudent = async (req, res) => {
   try {

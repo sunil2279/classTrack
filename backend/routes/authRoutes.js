@@ -1,11 +1,12 @@
 import{Router} from'express';
-import { addCourse, adminLogin, assignCourse, courseWiseStudents, dashboardStats, deleteCourse, deleteStudent, getAllCourse, getAllStudents, getStudentById, registerAdmin, updateFees } from '../controller/authController.js';
+import { addCourse, adminLogin, assignCourse, courseWiseStudents, dashboardStats, deleteCourse, deleteStudent, getAdminDetail, getAllCourse, getAllStudents, getStudentById, registerAdmin, updateFees } from '../controller/authController.js';
 import { authAdmin } from '../middleware/authAdmin.js';
 
 const router = Router();
 
 router.route("/register").post(registerAdmin);
 router.route("/login").post(adminLogin);
+router.route("/admin-detail").get(authAdmin,getAdminDetail);
 
 router.route("/students").get(authAdmin,getAllStudents);
 router.route("/student/:id").get(authAdmin,getStudentById);

@@ -26,7 +26,7 @@ export default function Dashboard() {
   let [student ,setStudent] = useState([]);
   let [dashboardData,setDashboardData] = useState({});
   let [statusData, setStatusData] = useState([]);
-
+  let [adminName, setAdminName] = useState("");
 
   const navigate = useNavigate();
 
@@ -54,6 +54,14 @@ export default function Dashboard() {
       }
     });
 
+    let admin = await clientServer.get("/admin/admin-detail",{
+      headers:{
+        Authorization:token
+      }
+    });
+
+
+    setAdminName(admin.data)
     setStatusData(res.data);
     setDashboardData(dashboardStatus.data);
     setStudent(studentResponce.data);
@@ -80,6 +88,7 @@ const values = statusData.map(item => item.count);
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -98,7 +107,7 @@ const values = statusData.map(item => item.count);
   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // latest first
   .slice(0, 5); 
 
-  console.log(statusData)
+  
   return (
 
      
@@ -107,10 +116,10 @@ const values = statusData.map(item => item.count);
       <div className={styles.top}>
        
       <div className={styles.navOption}>
-        <h1>welcom user : Harry</h1>
-        <div className={styles.user} onClick={() => {
+        <p className={styles.username}>Welcome: {adminName.name}</p>
+        {/* <div className={styles.user} onClick={() => {
           navigate("/profile");
-        }}><i class="fa-solid fa-user"></i> PROFILE</div>
+        }}><i class="fa-solid fa-user"></i> PROFILE</div> */}
       </div>
     </div>
 
@@ -154,7 +163,9 @@ const values = statusData.map(item => item.count);
               </div>
               <div className={styles.chart}>
                 <h3>Course Enrollment</h3>
-                <Doughnut data={data} options={options} />
+                <div className={styles.doughnut}>
+                  <Doughnut data={data} options={options} />
+                </div>
               </div>
             </div>
 

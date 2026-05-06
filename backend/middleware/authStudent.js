@@ -12,6 +12,9 @@ export const authStudent = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
+     if (decoded.role !== "student") {
+      return res.status(403).json({ message: "Access denied (Student only)" });
+    }
 
     req.student = {
       id: decoded.id,

@@ -2,21 +2,30 @@ import React, { useEffect, useState } from 'react'
 import styles from './register.module.css';
 import { clientServer } from '../../services/api.js';
 import {useNavigate} from 'react-router-dom';
+import {jwtDecode} from "jwt-decode";
+
+
 
 export default function Register() {
   let navigate = useNavigate();
-
+  
   useEffect(() => {
-    let token = localStorage.getItem("token");
-    let role = localStorage.getItem("role");
-    if(token && role == "studnet"){
-      navigate('/dashboard');
-    }
-    if(token && role == "admin"){
-      navigate("/admin-dashboard")
-    }
-
-  },[]);
+      let token = localStorage.getItem("token");
+      if(token){
+        try {
+          const decode = jwtDecode(token);
+  
+          if(decode.role === "admin"){
+            navigate("/admin-dashboard");
+          }else if(decode.role === "student"){
+            navigate("/dashboard");
+          }
+        } catch (error) {
+          console.log(error);
+          localStorage.clear();
+        }
+      }
+    },[]);
 
   const[userLoginMethod,setUserLoginMethod] = useState(false);
   let [form , setForm] = useState({
@@ -61,7 +70,7 @@ export default function Register() {
     try {
       const res = await clientServer.post("/student/login",form);
       localStorage.setItem("token",res.data.token);
-      localStorage.setItem("role",res.data.role);
+    
       setForm({
         email:"",
         password:""
