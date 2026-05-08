@@ -1,71 +1,106 @@
+.maincontainer{
+    margin: 0;
+    box-sizing: border-box;
+    height: 91vh;
+}
+.container{
+    height: 100%;
+    border-radius: 9px;
+}
+.topContainer{
+    height: 20vh;
+    margin: 12px;
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(45deg , #807bb3 , #b39cd5);
+}
+.topsidebar > p{
+    margin-left:20px;
+    margin-top: 50px;
+    font-weight: 600;
+    color: white;
+    font-size: 27px;
+    opacity: 0.8;
+    cursor: pointer;
+}
 
-.contianer{
-    display: flex;
-    margin: 1.3rem;
-}
-.leftContianer{
-    flex: 0.25;
-}
-.rightContianer{
-    border: 1px solid red;
-    flex: 0.75;
-    width: 100%;
-    background: linear-gradient(45deg ,#070a29,#181c50);
-}
-.topContent{
-    height: 8vh;
-    width: 100%;
-    border: 1px solid blue;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.midContent{
-    border: 1px solid green;
-    height: 30vh;
-    width: 100%;
-    display: flex;
-}
-.studentData{
-    display: flex;
-    justify-content: space-around;
-    margin: 2.5rem;
-    height: 164px;
-    width: 95%;
-}
-.card{
-    height: 164px;
-    width: 21%;
-    border: 2px solid white;
-    border-radius: 15px;
-}
-.bottomContent{
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-}
-.image{
-    display: flex;
-    justify-content: space-between;
-}
-img{
-    width: 40%;
-    min-width: 250px;
-}
-.bottom{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-.text{
+.midContainer{
     display: flex;
     flex-direction: column;
+}
+.midContainer > h5{
+    margin-left: 15px;
+}
+.feesOverview{
+    height: 22vh;
+    margin: 12px;
+    width: 70vw;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     justify-content: center;
-    align-items: center;
+    align-self: center;
 }
-/* 
- id = 69de7700244484258c53cb61;
- course id = 69d9de9066a104fcf1875da3
- course id second = 69d9deff66a104fcf1875da4
-*/
+.feescards{
+    border: 2px solid transparent;
+    height: 20vh;
+    width: 30%;
+    text-align: center;
+    border-radius: 16px;
+    background: #e8c9f7;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.feescards:hover{
+    border: 2px solid #9272c3;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.feescards > img{
+    height: 100px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+}
+.feescards > p{
+    margin: 0;
+    line-height:20px;
+}
+.ammountName{
+    opacity: 0.5;
+}
+.enrolledCourses{
+    height: 26vh;
+    margin: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow-y: auto;
+    gap: 12px;
+}
+
+.courseCard{
+    border: 2px solid transparent;
+    margin: 8px;
+    padding: 18px;
+    height: 17vh;
+    border-radius: 16px;
+    background: #e8c9f7;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.courseCard:hover{
+    border: 2px solid #9272c3;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.courseCard > p{
+    margin: 0;
+    line-height: 20px;
+}
+
+@media (max-width: 730px) {
+  .enrolledCourses {
+    grid-template-columns: repeat(1, 1fr);
+    overflow-y: auto;
+  }
+  .courseCard{
+  }
+}

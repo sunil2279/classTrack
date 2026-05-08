@@ -1,7 +1,6 @@
 .top{
   display: flex;
   height: 10vh;
-
 }
 .navOption{
   display: flex;
@@ -10,7 +9,7 @@
   padding-inline: 1rem;
   gap: 1rem;
   width: 100%;
-  background: linear-gradient(90deg, #1a213f, #0e132b);
+  background-color: white;
   border-top-right-radius: 20px;
 }
 .user:hover{

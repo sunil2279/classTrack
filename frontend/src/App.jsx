@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StudentDashboard from "./pages/Student/StudentDashboard.jsx";
 import MyCoursePage from "./pages/Student/myCoursePage.jsx";
 import FeesStatus from "./pages/Student/feesStatus.jsx";
-import Profile from "./components/profile.jsx";
+import Profile from "./pages/Student/profile.jsx";
 import ProtectedRoute from "./protectedRoute/protectedroute.jsx";
 
 //admin
@@ -27,7 +27,7 @@ function App() {
       <Route path="/" element={<Register/>}/>
       <Route path="/dashboard" element={<ProtectedRoute allowedRole="student"><StudentDashboard/></ProtectedRoute>} />
       <Route path="/mycourses" element={<ProtectedRoute allowedRole="student"><MyCoursePage/></ProtectedRoute>}></Route>
-      <Route path="/feesStatus" element={<ProtectedRoute allowedRole="student"><FeesStatus/></ProtectedRoute>}></Route>
+      {/* <Route path="/feesStatus" element={<ProtectedRoute allowedRole="student"><FeesStatus/></ProtectedRoute>}></Route> */}
       <Route path="/profile" element={<ProtectedRoute allowedRole="student"><Profile/></ProtectedRoute>}></Route>
 
 

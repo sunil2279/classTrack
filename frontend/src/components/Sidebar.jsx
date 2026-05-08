@@ -55,16 +55,26 @@ export default function Sidebar({ children }) {
               <i className="fa-solid fa-house"></i> Dashboard
             </div>
 
-            <div
+            {/* <div
               className={`sidebar-item ${location.pathname === "/feesStatus" ? "active" : ""}`}
               onClick={() => {
                 navigate("/feesStatus");
               }}
             >
               <span className="rupee">₹</span> Fees
-            </div>
+            </div> */}
+            {/* <div
+              className={`sidebar-item ${location.pathname === "/profile" ? "active" : ""}`}
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              {" "}
+              <i className="fa-solid fa-user"></i>Profile
+            </div> */}
 
-            <div
+
+            {/* <div
               className={`sidebar-item ${location.pathname === "/mycourses" ? "active" : ""}`}
               onClick={() => {
                 navigate("/mycourses");
@@ -72,7 +82,7 @@ export default function Sidebar({ children }) {
             >
               {" "}
               <i className="fa-solid fa-book"></i> My Course
-            </div>
+            </div> */}
 
 
           </div>

@@ -10,7 +10,7 @@ function Navbar({children}) {
     <div className="top">
        
       <div className="navOption">
-        <h1>welcom user : KOMAL</h1>
+        <h2>welcom user : KOMAL</h2>
         <div className="user" onClick={() => {
           navigate("/profile");
         }}><i class="fa-solid fa-user"></i> PROFILE</div>

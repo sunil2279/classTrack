@@ -1,0 +1,53 @@
+.nav{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.nav > h1{
+    margin-bottom: 1px;
+}
+.nav > p{
+    margin-top: 5px;
+}
+.topContainer{
+    height: 20vh;
+    margin: 12px;
+    border-radius: 9px;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    background: linear-gradient(45deg , #807bb3 , #b39cd5);
+    /* background: url("https://images.pexels.com/photos/545521/pexels-photo-545521.jpeg"); */
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+.studentProfile > img{
+    height: 8rem;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    left: 33px;
+    bottom: -83px;
+    flex: 0.2;
+    border:2px solid #807bb3;
+    
+}
+.studentData{
+    flex: 0.8;
+}
+.middleContainer{
+    border: 1px solid black;
+    height: 17rem;
+    margin-top: 4rem;
+    display: flex;
+    gap: 1rem;
+}
+.studentInfo{
+    padding-left: 1rem;
+    border: 1px solid red;
+    width: 50%;
+    font-weight: bold;
+}
+.about{
+    width: 50%;
+    border: 1px solid red;
+}
