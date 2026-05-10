@@ -6,7 +6,8 @@ import styles from './fees.module.css';
 export default function FeesStatus() {
   return (
     <MainLayout>
-      <Navbar></Navbar>
+      <h2>On Progress...</h2>
+      {/* <Navbar></Navbar>
       
       <div className={styles.maincontainer}>
         <div className={styles.container}>
@@ -28,7 +29,7 @@ export default function FeesStatus() {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
     </MainLayout>
   )
 }

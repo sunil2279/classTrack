@@ -49,7 +49,7 @@ export default function Register() {
     try {
       const res = await clientServer.post("/student/register",form);
       localStorage.setItem("token",res.data.token);
-      localStorage.setItem("role",res.data.role);
+      // localStorage.setItem("role",res.data.role);
       setForm({
         name:"",
         phone:"",

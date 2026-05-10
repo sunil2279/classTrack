@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
 }
-.midContainer > h5{
+.midContainer > h3{
     margin-left: 15px;
 }
 .feesOverview{
@@ -84,6 +84,7 @@
     padding: 18px;
     height: 17vh;
     border-radius: 16px;
+    line-height: 23px;
     background: #e8c9f7;
      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -93,7 +94,13 @@
 }
 .courseCard > p{
     margin: 0;
-    line-height: 20px;
+}
+.courseHead{
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.courseInfo{
+    opacity: 0.5;
 }
 
 @media (max-width: 730px) {

@@ -24,20 +24,22 @@ const StudentSchema = new mongoose.Schema(
         ref: "Course",
       },
     ],
-    fees: {
-      totalAmount: {
-        type: Number,
+    fees: [
+      {
+        totalAmount: {
+          type: Number,
+        },
+        paidAmount: {
+          type: Number,
+          default: 0,
+        },
+        status: {
+          type: String,
+          enum: ["Paid", "Pending", "Partial"],
+          default: "Pending",
+        },
       },
-      paidAmount: {
-        type: Number,
-        default: 0,
-      },
-      status: {
-        type: String,
-        enum: ["Paid", "Pending", "Partial"],
-        default: "Pending",
-      },
-    },
+    ],
   },
   { timestamps: true },
 );

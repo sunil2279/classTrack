@@ -8,7 +8,13 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-
+.classtrack{
+  display: flex;
+  justify-content: space-between;
+}
+.barIcon{
+  
+}
 .sidebar-item{
   margin-top:12px ;
   opacity: 0.6;

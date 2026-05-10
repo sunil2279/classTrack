@@ -5,7 +5,8 @@ import styles from './profile.module.css';
 export default function Profile() {
   return (
     <MainLayout>
-      <div className={styles.container}>
+      <h2>On Progress...</h2>
+      {/* <div className={styles.container}>
         <div className={styles.nav}>
           <h1>Student Profile</h1>
           <p>view and manage your profile</p>
@@ -14,12 +15,6 @@ export default function Profile() {
           <div className={styles.studentProfile}>
             <img src="/studentprofile.jpg" alt="" />
           </div>
-          {/* <div className={styles.studentData}>
-            <p>Student Name</p>
-            <p>email:</p>
-            <p>phone:</p>
-            <p>location:</p>
-          </div> */}
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.studentInfo}>
@@ -32,7 +27,7 @@ export default function Profile() {
           </div>
           <div className={styles.about}>sfg</div>
         </div>
-      </div>
+      </div> */}
     </MainLayout>
   )
 }

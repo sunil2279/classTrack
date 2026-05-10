@@ -11,3 +11,17 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+
+@media screen and (max-width:750px) {
+    .homeContianer{
+
+    }
+    .leftContainer{
+        flex: 0;
+        display: none;
+    }
+    .rightContainer{
+        flex: 1;
+    }
+}

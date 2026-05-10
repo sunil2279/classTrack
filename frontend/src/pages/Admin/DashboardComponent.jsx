@@ -67,7 +67,7 @@ export default function Dashboard() {
     setStudent(studentResponce.data);
     setCourses(courseResponce.data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
    }
    fetchdata();

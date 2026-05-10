@@ -33,7 +33,8 @@ export default function MyCoursePage() {
 
   return (
     <MainLayout>
-      <div className={styles.homeContainer}>
+      <h2>On Progress...</h2>
+      {/* <div className={styles.homeContainer}>
       <Navbar></Navbar>
         <div className={styles.container}>
           My courses
@@ -41,7 +42,7 @@ export default function MyCoursePage() {
             return (<MyCourses key={data._id} data={data} />);
           })}
         </div>
-      </div>
+      </div> */}
     </MainLayout>
   );
 }

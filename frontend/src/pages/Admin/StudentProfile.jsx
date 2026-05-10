@@ -5,9 +5,8 @@ import { clientServer } from "../../services/api.js";
 import styles from "./studentProfile.module.css";
 import { useNavigate } from "react-router-dom";
 
-
 export default function StudentProfile() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   let { id } = useParams();
   let [student, setStudent] = useState({});
   const token = localStorage.getItem("token");
@@ -17,8 +16,7 @@ export default function StudentProfile() {
   let [courseId, setCourseId] = useState("");
   let [updateFees, setUpdateFees] = useState(false);
   let [updatedAmount, setUpdatedAmount] = useState(0);
-  let [errorMessage,setErrorMessage] = useState("");
-  
+  let [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     let fetchdata = async () => {
@@ -31,7 +29,7 @@ export default function StudentProfile() {
 
         setCourses(responce.data);
       } catch (error) {
-        setErrorMessage(error.response?.data?.message)
+        setErrorMessage(error.response?.data?.message);
       }
     };
 
@@ -46,8 +44,9 @@ export default function StudentProfile() {
         },
       });
       setStudent(res.data.student);
+      console.log(res.data.student);
     } catch (error) {
-      setErrorMessage(error.response?.data?.message)
+      setErrorMessage(error.response?.data?.message);
     }
   };
 
@@ -74,7 +73,7 @@ export default function StudentProfile() {
       setCourseId("");
       setShowModal(false);
     } catch (error) {
-      setErrorMessage(error.response?.data?.message)
+      setErrorMessage(error.response?.data?.message);
     }
   };
 
@@ -103,7 +102,7 @@ export default function StudentProfile() {
       });
       setStudent(res.data.student);
     } catch (error) {
-      setErrorMessage(error.response?.data?.message)
+      setErrorMessage(error.response?.data?.message);
     }
   };
 
@@ -121,21 +120,30 @@ export default function StudentProfile() {
       alert("student deleted!");
       navigate("/admin-students");
     } catch (error) {
-      setErrorMessage(error.response?.data?.message)
+      setErrorMessage(error.response?.data?.message);
     }
   };
+
+  let rupeeconvert = (rupee) => {
+    return Number(rupee || 0).toLocaleString("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    });
+  };
+
+  const studentfeeInfo = student?.fees?.[0] || {};
+  const pendingFeesInfo =
+    (studentfeeInfo.totalAmount || 0) - (studentfeeInfo.paidAmount || 0);
 
   return (
     <MainLayout>
       <div className={styles.mainContainer}>
-
-        {errorMessage && 
-        alert(`${errorMessage}`)
-        }
+        {errorMessage && alert(`${errorMessage}`)}
 
         <div className={styles.container}>
           <div className={styles.topNav}>
-            <p>Student Profile</p>
+            <h2 style={{ marginBottom: "0" }}>Student Profile</h2>
             <p>24 January,2026</p>
           </div>
 
@@ -164,36 +172,10 @@ export default function StudentProfile() {
             </div>
           </div>
 
-          <div className={styles.feesOverView}>
-            <h3>Fees OverView</h3>
-            <div className={styles.cards}>
-              <div className={styles.totalFee}>
-                <i class="fa-solid fa-people-group"></i>
-                <p>Total Fees</p>
-                <h3>₹{student?.fees?.totalAmount || 0}</h3>
-              </div>
-              <div className={styles.paidAmount}>
-                <i class="fa-solid fa-indian-rupee-sign"></i> <p>PaidAmount</p>
-                <h3>₹{student?.fees?.paidAmount || 0}</h3>
-              </div>
-              <div className={styles.dueAmount}>
-                <i class="fa-regular fa-clock"></i>
-                <p>Pending</p>
-                <h3>
-                  ₹
-                  {(student?.fees?.totalAmount || 0) -
-                    (student?.fees?.paidAmount || 0)}
-                </h3>
-              </div>
-            </div>
+          <div className={styles.bottomarea}>
+            <div className={styles.EnrolledCourses}>
+              <h3>Enrolled Courses </h3>
 
-            <div className={styles.status}>status</div>
-          </div>
-
-          <div className={styles.EnrolledCourses}>
-            <h3>Enrolled Courses </h3>
-
-            
               {student.course && student.course.length > 0 ? (
                 student.course.map((course) => (
                   <div key={course._id} className={styles.courseCard}>
@@ -208,24 +190,52 @@ export default function StudentProfile() {
               ) : (
                 <p>No Courses Assigned</p>
               )}
-            
-          </div>
+            </div>
 
-          <h2>Actions </h2>
-          <div className={styles.actions}>
-            <div className={styles.actionCards}>
-              <p onClick={() => setShowModal(true)}>
-                <i class="fa-solid fa-link"></i> Assign Course
-              </p>
-            </div>
-            <div className={styles.actionCards}>
-              <p onClick={() => setUpdateFees(true)}>
-                <i class="fa-solid fa-indian-rupee-sign"></i> Update Fees
-              </p>
-            </div>
-            <div className={styles.actionCards} onClick={handleStudentDeletion}>
-              <i class="fa-solid fa-trash-can"></i>
-              <div>Delete Student</div>
+            <div className={styles.righarea}>
+                <h2>Fees OverView</h2>
+              <div className={styles.feesOverView}>
+                <div className={styles.cards}>
+                  <div className={styles.fee}>
+                    {/* <i class="fa-solid fa-people-group"></i> */}
+                    <p>Total Fees</p>
+                    <h3>{rupeeconvert(studentfeeInfo.totalAmount || 0)}</h3>
+                  </div>
+                  <div className={styles.fee}>
+                    {/* <i class="fa-solid fa-indian-rupee-sign"></i>{" "} */}
+                    <p>Paid Amount</p>
+                    <h3>{rupeeconvert(studentfeeInfo.paidAmount || 0)}</h3>
+                  </div>
+                  <div className={styles.fee}>
+                    {/* <i class="fa-regular fa-clock"></i> */}
+                    <p>Pending</p>
+                    <h3>{rupeeconvert(pendingFeesInfo)}</h3>
+                  </div>
+                </div>
+
+                {/* <div className={styles.status}>status</div> */}
+              </div>
+
+              <h2>Actions </h2>
+              <div className={styles.actions}>
+                <div className={styles.actionCards}>
+                  <p onClick={() => setShowModal(true)} className={styles.assignBtn}>
+                    <i class="fa-solid fa-link"></i> Assign Course
+                  </p>
+                </div>
+                <div className={styles.actionCards}>
+                  <p onClick={() => setUpdateFees(true)} className={styles.updateBtn}>
+                    <i class="fa-solid fa-indian-rupee-sign"></i> Update Fees
+                  </p>
+                </div>
+                <div
+                  className={styles.actionCards}
+                  onClick={handleStudentDeletion}
+                >
+                  
+                  <p className={styles.deleteBtn}><i class="fa-solid fa-trash-can"></i>Delete Student</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
