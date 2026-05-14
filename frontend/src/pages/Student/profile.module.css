@@ -13,8 +13,8 @@
     margin: 12px;
     border-radius: 9px;
     display: flex;
+    gap: 15%;
     color: white;
-    justify-content: space-between;
     background: linear-gradient(45deg , #807bb3 , #b39cd5);
     /* background: url("https://images.pexels.com/photos/545521/pexels-photo-545521.jpeg"); */
     object-fit: cover;

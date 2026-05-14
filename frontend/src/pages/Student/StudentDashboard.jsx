@@ -31,7 +31,6 @@ function StudentDashboard() {
           }
         });
 
-        console.log(studentResponse.data.student)
         setStudentInfo(studentResponse.data.student);
         setName(studentResponse.data.student.name);
         setCoursedata(response.data);
@@ -60,7 +59,7 @@ function StudentDashboard() {
           <div className={styles.topContainer}>
             <div className={styles.topsidebar}>
 
-              <p >welcome {name}</p>
+              <p >welcome: {name}</p>
             </div>
             <img src="/studentsideimg.png" alt="" />
           </div>
@@ -93,9 +92,9 @@ function StudentDashboard() {
                 coursedata.map((data) => (
                   <div className={styles.courseCard} key={data._id}>
                     <p className={styles.courseHead}>{data.name}</p>
-                    <p className={styles.courseInfo}>{rupeeconvert(data.fees)}</p>
-                    <p className={styles.courseInfo}>{data.duration}</p>
-                    <p className={styles.courseInfo}>{data.description}</p>
+                    <p className={styles.courseInfo}>Fees: {rupeeconvert(data.fees)}</p>
+                    <p className={styles.courseInfo}>Duration: {data.duration}</p>
+                    <p className={styles.courseInfo}>Description: {data.description}</p>
                   </div>
                 ))
               }

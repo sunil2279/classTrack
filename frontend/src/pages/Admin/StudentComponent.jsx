@@ -23,13 +23,17 @@ export default function Student() {
       }
       fetchdata();
     },[])
-    // console.log(students);
+    
   return (
     <MainLayout>
       <div className={styles.container}>
         {students.map((data) => (
-          <div className={styles.cards} key={data._id} onClick={() => navigate(`/admin-student/${data._id}`)}>
-            <p>{data.name}</p>
+          <div className={styles.cards} key={data._id}>
+             <div className={styles.card}>
+                <img src="/studentprofile.jpg" alt="studentimg" className={styles.img}/>
+                <p className={styles.studentName}>{data.name}</p>
+             </div>
+            <button className={styles.btn} onClick={() => navigate(`/admin-student/${data._id}`)}>view profile</button>
           </div>
         ))}
       </div>

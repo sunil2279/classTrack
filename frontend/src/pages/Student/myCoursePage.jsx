@@ -22,7 +22,7 @@ export default function MyCoursePage() {
             Authorization: token,
           },
         });
-        console.log(response.data)
+        
         setCoursedata(response.data);
       } catch (error) {
         return error.message?.data?.message;

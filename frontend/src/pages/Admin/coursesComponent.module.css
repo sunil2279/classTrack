@@ -7,11 +7,11 @@
     height: 100%;
 } */
  .mainContainer{
-    height: 93vh;   /* 🔥 important */
+    height: 92vh;   /* 🔥 important */
 }
 
 .container{
-    height: 93vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
 }
@@ -20,6 +20,7 @@
     justify-content: space-between;
     padding-inline: 10px;
     height: 80px;
+    border-bottom:3px solid #9272c3;
 }
 .StudentCourses{
     margin-top:18px;
@@ -56,7 +57,19 @@
     width: fit-content;
     padding-inline: 20px;
 }
-
+.deletebtn{
+    height: 40px;
+    width: 8rem;
+    color: whitesmoke;
+    background: #925fe2;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 5px 5px 8px 0px #34234f;
+    cursor: pointer;
+}
+.deletebtn:active{
+    transform: scale(0.9);
+}
 @media (max-width: 1024px) {
   .StudentCourses {
     grid-template-columns: repeat(2, 1fr);

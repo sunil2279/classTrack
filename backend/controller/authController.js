@@ -153,7 +153,15 @@ export const assignCourse = async (req, res) => {
     }
 
     student.course.push(courseId);
-    student.fees.totalAmount = (student.fees.totalAmount || 0) + course.fees;
+    if(student.fees.length === 0){
+       student.fees.push({
+        totalAmount:course.fees,
+        status:"Pending",
+        paidAmount:0
+       })
+    }else{
+      student.fees[0].totalAmount += course.fees;
+    }
 
     await student.save();
     return res.json({ message: "Course assigned successfully", student });
@@ -247,9 +255,11 @@ export const dashboardStats = async (req, res) => {
     let totalFeesAmount = 0;
     let paidAmount = 0;
     students.forEach((s) => {
-      totalEarnings += s.fees.paidAmount;
-      totalFeesAmount += s.fees.totalAmount;
-      paidAmount += s.fees.paidAmount;
+      s.fees.forEach((data) => {
+        totalEarnings += data.paidAmount;
+        totalFeesAmount += data.totalAmount;
+        paidAmount += data.paidAmount;
+      })
     });
     
     let pendingAmount = totalFeesAmount - totalEarnings;

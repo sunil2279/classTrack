@@ -27,6 +27,7 @@ export default function Dashboard() {
   let [dashboardData,setDashboardData] = useState({});
   let [statusData, setStatusData] = useState([]);
   let [adminName, setAdminName] = useState("");
+  let [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -65,9 +66,8 @@ export default function Dashboard() {
     setStatusData(res.data);
     setDashboardData(dashboardStatus.data);
     setStudent(studentResponce.data);
-    setCourses(courseResponce.data);
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error?.response?.data?.message || "Something went wrong")
     }
    }
    fetchdata();
@@ -107,19 +107,27 @@ const values = statusData.map(item => item.count);
   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // latest first
   .slice(0, 5); 
 
-  
+   let rupeeconvert = (rupee) => {
+    return Number(rupee || 0).toLocaleString("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    });
+  };
   return (
 
      
      <MainLayout>
         <div className={styles.mainContainer}>
+        {errorMessage && (
+          <p className={styles.error}>
+            {errorMessage}
+          </p>
+        )}
       <div className={styles.top}>
        
       <div className={styles.navOption}>
         <p className={styles.username}>Welcome: {adminName.name}</p>
-        {/* <div className={styles.user} onClick={() => {
-          navigate("/profile");
-        }}><i class="fa-solid fa-user"></i> PROFILE</div> */}
       </div>
     </div>
 
@@ -128,22 +136,21 @@ const values = statusData.map(item => item.count);
             <div className={styles.topCards}>
               <div className={styles.card}>
                 <h3><i className="fa-solid fa-user"></i> Total Student</h3>
-                <p>{dashboardData?.TotalStudent}</p>
               </div>
 
               <div className={styles.card}>
                 <h3><i className="fa-solid fa-book"></i> Active Courses</h3>
-                <p>{dashboardData?.TotalCourse}</p>
+                <p style={{fontSize:"1.2rem"}}>{dashboardData?.TotalCourse}</p>
               </div>
 
               <div className={styles.card}>
                 <h3><i class="fa-solid fa-indian-rupee-sign"></i> Pending Fees</h3>
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>{dashboardData?.pendingAmount}</p>
+                <p style={{fontSize:"1.2rem"}}>{rupeeconvert(dashboardData?.pendingAmount)}</p>
               </div>
 
               <div className={styles.card}>
                 <h3><i class="fa-solid fa-indian-rupee-sign"></i>Total Earnings</h3>  
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>{dashboardData?.totalEarnings}</p>
+                <p style={{fontSize:"1.2rem"}}>{rupeeconvert(dashboardData?.totalEarnings)}</p>
               </div>
 
             </div>
@@ -153,7 +160,7 @@ const values = statusData.map(item => item.count);
                 <h3>Recent Student</h3>
                 {
                   recentStudents.map((s, i) => (
-                    <div key={i}>
+                    <div key={i} className={styles.statusCard}>
                       <h4>{s.name}</h4>
                       <p>{s.email}</p>
                     </div>

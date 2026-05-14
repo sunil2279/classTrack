@@ -44,7 +44,7 @@ export default function StudentProfile() {
         },
       });
       setStudent(res.data.student);
-      console.log(res.data.student);
+      
     } catch (error) {
       setErrorMessage(error.response?.data?.message);
     }
@@ -143,7 +143,8 @@ export default function StudentProfile() {
 
         <div className={styles.container}>
           <div className={styles.topNav}>
-            <h2 style={{ marginBottom: "0" }}>Student Profile</h2>
+          {/* <i class="fa-solid fa-xmark"></i> */}
+            <h2 style={{ "marginBottom": "0", "marginLeft":"2rem"}}>Student Profile</h2>
             <p>24 January,2026</p>
           </div>
 
@@ -182,8 +183,8 @@ export default function StudentProfile() {
                     <p className={styles.courseName}>{course.name}</p>
                     <p>Duration: {course.duration}</p>
                     <p>
-                      Fees: <i class="fa-solid fa-indian-rupee-sign"></i>{" "}
-                      {course.fees}
+                      Fees:
+                      {rupeeconvert(course.fees)}
                     </p>
                   </div>
                 ))
@@ -260,9 +261,9 @@ export default function StudentProfile() {
             </select>
 
             <div className={styles.modalButtons}>
-              <button onClick={handleAssignCourse}>Assign</button>
+              <button className={styles.change}  onClick={handleAssignCourse}>Assign</button>
 
-              <button onClick={() => setShowModal(false)}>Cancel</button>
+              <button className={styles.cancelbtn} onClick={() => setShowModal(false)}>Cancel</button>
             </div>
           </div>
         </div>
@@ -272,15 +273,15 @@ export default function StudentProfile() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalBox}>
             <h3>Update fees</h3>
-            <input
+            <input 
               type="number"
               placeholder="Enter Amount"
               onChange={(e) => setUpdatedAmount(Number(e.target.value))}
             />
 
             <div className={styles.modalButtons}>
-              <button onClick={() => setUpdateFees(false)}>cancel</button>
-              <button onClick={handlUpdateFees}>Update Fees</button>
+              <button className={styles.cancelbtn} onClick={() => setUpdateFees(false)}>cancel</button>
+              <button className={styles.change} onClick={handlUpdateFees}>Update Fees</button>
             </div>
           </div>
         </div>

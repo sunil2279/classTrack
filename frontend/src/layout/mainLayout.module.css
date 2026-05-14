@@ -13,9 +13,9 @@
 }
 
 
-@media screen and (max-width:750px) {
+/* @media screen and (max-width:750px) {
     .homeContianer{
-
+        flex-direction: column;
     }
     .leftContainer{
         flex: 0;
@@ -24,4 +24,4 @@
     .rightContainer{
         flex: 1;
     }
-}
+} */

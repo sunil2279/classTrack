@@ -33,8 +33,7 @@ export default function CreateNewCourse() {
           },
         },
       );
-
-      console.log(response);
+      
       navigate("/admin-courses");
       setFormdata({});
 

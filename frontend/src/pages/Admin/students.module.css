@@ -1,5 +1,6 @@
 .container{
     height: 100%;
+    height: 92vh;
     width: 100%;
     background: white;
     display: flex;
@@ -11,8 +12,41 @@
     /* justify-content: center; */
 }
 .cards{
-    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
     width: 80%;
-    background: rgb(201, 163, 145);
+    background: rgb(231 219 198 / 82%);
     margin: 1rem;
+    border-radius: 10px;
+    padding-inline: 1rem;
+    box-shadow: 5px 5px 15px 3px rgb(164, 164, 190);
+}
+.btn{
+    height: 40px;
+    width: 8rem;
+    color: whitesmoke;
+    background: #925fe2;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 5px 5px 8px 0px #34234f;
+}
+.btn:active{
+    transform: scale(0.9);
+}
+.img {
+  width: 60px;
+  background: white;
+  border-radius: 50%;
+  
+}
+.card{
+    display:flex;
+    gap:1rem;
+}
+.studentName{
+    font-size: large;
+    font-weight: 600;
+    opacity: 0.9;
 }

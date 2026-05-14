@@ -17,7 +17,7 @@
 .studentleftprofile {
   align-self: center;
 }
-.studentleftprofile img {
+.studentleftprofile > img {
   width: 90px;
   background: white;
   border-radius: 50%;
@@ -56,22 +56,21 @@
   background-color: rgb(231 219 198 / 82%);
   border-radius: 10px;
   flex-direction: column;
+  justify-content: center;
   box-shadow: 5px 5px 15px 3px rgb(164, 164, 190);
 }
 .cards{
   display: flex;
-    flex-direction: row;
-    gap: 0.3rem;
-    padding: 0.3rem;
-    justify-content: center;
-    align-items: center;
+  justify-content: space-evenly;
 }
 .fee{
-    background: #b5a5d9;
+    background: #d4c2ef;
     height: 7rem;
     border-radius: 10px;
-    width: 6.2rem;
+    min-width: 6.2rem;
+    width: 8rem;
     padding-inline:2px ;
+    text-align: center;
 }
 .actions {
   width: 100%;
@@ -86,7 +85,6 @@
   flex-direction: column;
 }
 
-/* assign course  styling */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -101,24 +99,59 @@
 }
 
 .modalBox {
-  background: white;
+  background:#d9d9d9;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.modalBox select {
-  width: 100%;
+.modalBox > select{
+  width: 84%;
   padding: 10px;
   margin-top: 10px;
+  border-radius: 10px;
+  height: 6vh;
 }
 
 .modalButtons {
-  margin-top: 15px;
+  margin-top: 2rem;
   display: flex;
   justify-content: space-between;
 }
 
+.modalBox > input{
+  width: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 2vh;
+  border: 1px solid #b5a5d9;
+}
+.modalButtons > button{
+  height: 2.5rem;
+  width: 8rem;
+  border: none;
+  border-radius: 12px;
+  margin: 3rem;
+}
+
+.modalButtons > button:active{
+  transform: scale(0.9);
+}
+
+.change{
+  color: whitesmoke;
+  background: #925fe2;
+  box-shadow: 5px 5px 8px 0px #433c4f;
+}
+.cancelbtn{
+  background-color: white;
+  box-shadow: 5px 5px 8px 0px #6d657b;
+}
 
 
 .bottomarea{

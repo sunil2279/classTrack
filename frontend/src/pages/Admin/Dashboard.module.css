@@ -1,12 +1,12 @@
 .mainContainer{
     display: flex;
-    height: 100%;
+    height: 92vh;
     flex-direction: column;
 }
 .contianer{
     display: flex;
     flex-direction: column;
-    height: 89%;
+    height: 100%;
 }
 .topCards{
     display: flex;
@@ -41,12 +41,31 @@
     width: 46%;
     background-color: #ebe1d0;
     border-radius: 10px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d3d3d3 #ffffff;
+    background-color: rgb(231 219 198 / 82%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 3px rgb(164, 164, 190);
 }
+.statusCard{
+    border: 1px solid rgb(61, 58, 58);
+    margin: 12px 5px 5px 5px;
+    padding-inline: 12px;
+    align-self: center;
+    background: rgb(231 219 198 / 82%);
+    border-radius: 12px;
+}
+.statusCard:hover{
+    background-color:  #b5a5d9;
+}
+
 .chart{
     height: 96%;
     width: 46%;
-    background-color: #ebe1d0;
     border-radius: 10px;
+    background-color: rgb(231 219 198 / 82%);
+    box-shadow: 5px 5px 15px 3px rgb(164, 164, 190);
 }
 .top{
   display: flex;
@@ -70,5 +89,13 @@
 }
 .username{
     margin-top: 22px;
-    font-size: 50px;
+    font-size: 35px;
+}
+.error{
+  background: #ffebeb;
+  color: red;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 500;
 }

@@ -1,9 +1,8 @@
 .container{
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 93vh;
     align-items: center;
-    background: #121529;
 }
 
 .cardContainer{
@@ -13,8 +12,8 @@
     border-radius: 10px;
     overflow: hidden;
     width: 80vw;
-    background: #28294d;
-    box-shadow: 10px 10px 15px rgb(30 35 57);
+    background: #9272c3;
+    box-shadow: 5px 5px 5px 5px rgb(164, 164, 190);
     
 }
 
@@ -25,17 +24,22 @@
     
 }
 .cardleft_heading{
+    color: white;
     font-weight: bold;
     font-size: 1.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 .inputField{
-    padding-inline: 1.3rem;
-    padding-block: 0.8rem;
+    padding-inline: 1rem;
+    padding-block: 0.6rem;
     outline: none;
     border-radius: 10px;
     border: 2px solid #bbbbbb;
-    width: 90%;
-    box-shadow: 5px 5px 15px #121529;
+    background: antiquewhite;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 5px 4px 7px #433061;
 }
 .inputField:focus{
     background-color: #d1d0d0;
@@ -46,23 +50,20 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 1.3rem;
     max-width: 400px;
     margin: 0 auto;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 .buttonWithOutline{
-    background: #57519d;
+    background: #9272c3;
     width: 66%;
     text-align: center;
     border-radius: 10px;
     color: #fff;
-    box-shadow:15px 15px 18px #121529;
-    
+    box-shadow:6px 4px 8px #121529;
+    margin-top: 1rem;
 }
-.buttonWithOutline:hover{
-    background-color: #464180;   
-}
+
 .buttonWithOutline:active{
    transform: scale(0.95);
    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -78,12 +79,20 @@
 .cardContainer_right{
     display: flex;
     flex: 0.4;
-    background-color: #12162f;
+    background-color: whitesmoke;
     padding: 2rem;
     justify-content: center;
     align-items: center;
-    color: white;
     flex-direction: column;
     gap: 1.2rem;
     padding-inline: 1.2rem;
+}
+
+.errorMessage{
+    color: red;
+    margin: 0;
+    border: 1px solid #ed000069;
+    padding: 3px;
+    background: #ff000017;
+    border-radius: 12px;
 }

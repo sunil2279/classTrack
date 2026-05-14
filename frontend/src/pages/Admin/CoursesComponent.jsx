@@ -56,6 +56,15 @@ export default function CoursesComponent() {
       console.log(error);
     }
   };
+
+  let rupeeconvert = (rupee) => {
+    return Number(rupee || 0).toLocaleString("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    });
+  };
+
   return (
     <MainLayout>
       <div className={styles.mainContainer}>
@@ -75,9 +84,9 @@ export default function CoursesComponent() {
               <div className={styles.course} key={course._id}>
                 <p>{course.name}</p>
                 <p>{course.description}</p>
-                <p>₹{course.fees}</p>
+                <p>{rupeeconvert(course.fees)}</p>
                 <p>{course.duration}</p>
-                <button onClick={() => handlecourseDelete(course._id)}>
+                <button className={styles.deletebtn} onClick={() => handlecourseDelete(course._id)}>
                   Delete
                 </button>
               </div>

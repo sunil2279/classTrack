@@ -42,7 +42,7 @@ export default function Sidebar({ children }) {
           <h2>
             <i className="fa-solid fa-graduation-cap"></i>ClassTrack
           </h2>
-          <span className="barIcon"><i class="fa-solid fa-bars"></i></span>
+          {/* <span className="barIcon"><i class="fa-solid fa-bars"></i></span> */}
         </div>
 
         {role === "student" ? (
@@ -56,14 +56,14 @@ export default function Sidebar({ children }) {
               <i className="fa-solid fa-house"></i> Dashboard
             </div>
 
-            <div
+            {/* <div
               className={`sidebar-item ${location.pathname === "/feesStatus" ? "active" : ""}`}
               onClick={() => {
                 navigate("/feesStatus");
               }}
             >
               <span className="rupee">₹</span> Fees
-            </div>
+            </div> */}
             <div
               className={`sidebar-item ${location.pathname === "/profile" ? "active" : ""}`}
               onClick={() => {
@@ -75,7 +75,7 @@ export default function Sidebar({ children }) {
             </div>
 
 
-            <div
+            {/* <div
               className={`sidebar-item ${location.pathname === "/mycourses" ? "active" : ""}`}
               onClick={() => {
                 navigate("/mycourses");
@@ -83,7 +83,7 @@ export default function Sidebar({ children }) {
             >
               {" "}
               <i className="fa-solid fa-book"></i> My Course
-            </div>
+            </div> */}
 
 
           </div>

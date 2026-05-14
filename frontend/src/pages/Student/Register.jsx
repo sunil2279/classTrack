@@ -49,7 +49,6 @@ export default function Register() {
     try {
       const res = await clientServer.post("/student/register",form);
       localStorage.setItem("token",res.data.token);
-      // localStorage.setItem("role",res.data.role);
       setForm({
         name:"",
         phone:"",
@@ -58,19 +57,17 @@ export default function Register() {
       });
 
       navigate("/dashboard");
-
     } catch (error) {
       setErrorMessage(error.response?.data?.message);
       setIsError(true);
     }
   }
-
-
+  
   const handleLogin = async() => {
     try {
       const res = await clientServer.post("/student/login",form);
       localStorage.setItem("token",res.data.token);
-    
+
       setForm({
         email:"",
         password:""
@@ -91,10 +88,10 @@ export default function Register() {
         <div className={styles.cardContainer}>
 
           <div className={styles.cardContainer_left}>
+             {isError === true ? <p className={styles.errorMessage}>{errorMessage}</p> : <></>}
 
             <p className={styles.cardleft_heading}>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
             
-             {isError === true ? <p style={{color:"red"}}>{errorMessage}</p> : <></>}
             <div className={styles.inputContainers}>
 
               {!userLoginMethod && 
@@ -123,7 +120,7 @@ export default function Register() {
                   handleLogin();
                 }
               }}
-               className={styles.buttonWithOutline}>
+               className={styles.buttonWithOutline} style={{background:"whitesmoke",opacity:"0.8",color:"black",boxShadow:"5px 4px 7px #433061"}}>
 
                 <p>{userLoginMethod ? "Sign In" : "Sign Up"}</p>
                 
@@ -141,7 +138,7 @@ export default function Register() {
                   setUserLoginMethod(!userLoginMethod);
                 }}
 
-                style={{color:"black", alignItems:"center"}}
+                style={{alignItems:"center"}}
                  className={styles.buttonWithOutline}>
                   <p>{userLoginMethod ? "Sign Up" : "Sign In"}</p>
               
